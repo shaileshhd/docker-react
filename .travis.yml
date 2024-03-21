@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t shaileshhd/frontend -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true shaileshhd/frontend npm run test
